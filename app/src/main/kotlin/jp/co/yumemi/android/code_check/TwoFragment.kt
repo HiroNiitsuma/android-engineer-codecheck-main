@@ -26,14 +26,23 @@ class TwoFragment : Fragment(R.layout.fragment_two) {
 
         binding = FragmentTwoBinding.bind(view)
 
-        var item = args.item
+        val item = args.item
 
-        _binding.ownerIconView.load(item.ownerIconUrl);
-        _binding.nameView.text = item.name;
-        _binding.languageView.text = item.language;
-        _binding.starsView.text = "${item.stargazersCount} stars";
-        _binding.watchersView.text = "${item.watchersCount} watchers";
-        _binding.forksView.text = "${item.forksCount} forks";
-        _binding.openIssuesView.text = "${item.openIssuesCount} open issues";
+        _binding.ownerIconView.load(item.ownerIconUrl)
+        _binding.nameView.text = item.name
+        _binding.languageView.text = item.language
+        "${item.stargazersCount} stars".also { _binding.starsView.text = it }
+        "${item.watchersCount} watchers".also { _binding.watchersView.text = it }
+        "${item.forksCount} forks".also { _binding.forksView.text = it }
+        "${item.openIssuesCount} open issues".also { _binding.openIssuesView.text = it }
+
+//        _binding.ownerIconView.load(item.ownerIconUrl);
+//        _binding.nameView.text = item.name;
+//        _binding.languageView.text = item.language;
+//        _binding.starsView.text = "${item.stargazersCount} stars";
+//        _binding.watchersView.text = "${item.watchersCount} watchers";
+//        _binding.forksView.text = "${item.forksCount} forks";
+//        _binding.openIssuesView.text = "${item.openIssuesCount} open issues";
+
     }
 }
